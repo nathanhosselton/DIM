@@ -365,6 +365,8 @@
     "FilterHelpRecords": "Search triumphs and collections",
     "FilterMatchCount": "1 item",
     "FilterMatchCount_plural": "{{count}} items",
+    "FilterPatternCount": "1 pattern",
+    "FilterPatternCount_plural": "{{count}} patterns",
     "Filters": "Filters",
     "InstallDIM": "Install as an App",
     "InstallDIMBanner": "Install DIM as an app on your home screen",

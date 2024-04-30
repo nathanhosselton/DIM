@@ -118,6 +118,16 @@ export const filteredItemsSelector = createSelector(
     allItems.filter((i) => displayableBuckets.has(i.location.hash) && searchFilter(i)),
 );
 
+/** A selector for a function for searching unlocked craftable weapons, given the current search query. */
+export const craftablesFilterSelector = createSelector(
+  querySelector,
+  filterFactorySelector,
+  // Returns a function that takes a DimItem and returns boolean-ish value for whether that item matched the active filter
+  // Step 2: This makes the function to which items are passed to determine if they match the user query
+  // Note: This is the function we will use as the next one targets the player's inventory
+  (query, filterFactory) => filterFactory(`${query} is:patternunlocked`),
+);
+
 /** A selector for a function for validating a query. */
 export const validateQuerySelector = createSelector(
   searchConfigSelector,

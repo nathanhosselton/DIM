@@ -12,3 +12,12 @@
   min-height: calc(#{$badge-height} + var(--item-size) + 4px) !important;
   margin: 10px;
 }
+
+.pattern-icon {
+  box-sizing: border-box !important;
+  width: var(--item-size);
+  height: calc((var(--item-size) + ((var(--item-size) / 5) + 4px) - 1px));
+  font-size: calc(var(--item-size) * 0.71);
+  padding: 8px;
+  color: $shaped;
+}

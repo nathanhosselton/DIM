@@ -3,8 +3,10 @@ import { t } from 'app/i18next-t';
 import ConnectedInventoryItem from 'app/inventory/ConnectedInventoryItem';
 import DraggableInventoryItem from 'app/inventory/DraggableInventoryItem';
 import ItemPopupTrigger from 'app/inventory/ItemPopupTrigger';
+import { AppIcon, shapedIcon } from 'app/shell/icons';
+import { VendorItemDisplay } from 'app/vendors/VendorItemComponent';
 import clsx from 'clsx';
-import { memo } from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import Sheet from '../dim-ui/Sheet';
 import { DimItem } from '../inventory/item-types';
@@ -17,16 +19,22 @@ import styles from './SearchResults.m.scss';
  */
 export default memo(function SearchResults({
   items,
+  patterns,
   onClose,
 }: {
   items: DimItem[];
+  patterns: DimItem[];
   onClose: () => void;
 }) {
   const sortItems = useSelector(itemSorterSelector);
 
   const header = (
     <div>
-      <h1 className={styles.header}>{t('Header.FilterMatchCount', { count: items.length })}</h1>
+      <h1 className={styles.header}>
+        {t('Header.FilterMatchCount', { count: items.length })}
+        {patterns.length > 0 && ' + '}
+        {patterns.length > 0 && t('Header.FilterPatternCount', { count: patterns.length })}
+      </h1>
     </div>
   );
 
@@ -50,6 +58,15 @@ export default memo(function SearchResults({
               </ItemPopupTrigger>
             </DraggableInventoryItem>
           ))}
+
+          {patterns.length > 0 && (
+            <React.Fragment key="patterns">
+              <AppIcon className={styles.patternIcon} icon={shapedIcon} />
+              {sortItems(patterns).map((pattern) => (
+                <VendorItemDisplay key={pattern.index} item={pattern} />
+              ))}
+            </React.Fragment>
+          )}
         </div>
       </ClickOutsideRoot>
     </Sheet>

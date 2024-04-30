@@ -3,6 +3,7 @@
 interface CssExports {
   'contents': string;
   'header': string;
+  'patternIcon': string;
   'searchResults': string;
 }
 export const cssExports: CssExports;

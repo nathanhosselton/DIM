@@ -366,6 +366,8 @@
     "FilterHelpLoadouts": "Search loadout names and notes",
     "FilterMatchCount": "1 item",
     "FilterMatchCount_plural": "{{count}} items",
+    "FilterPatternCount": "1 pattern",
+    "FilterPatternCount_plural": "{{count}} patterns",
     "Filters": "Filters",
     "FilterHelpMenuItem": "Filters Help...",
     "LaunchDIMAlone": "Separate Window",
